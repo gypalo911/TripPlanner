@@ -103,27 +103,19 @@ extension Home {
         }
         
         func findRoute() {
-            Task {
-                await MainActor.run {
-                    state = .loading(
-                        title: "Searching for route...",
-                        subtitle: "Travel is the only thing you buy that makes you richer"
-                    )
-                }
-                try? await Task.sleep(nanoseconds: 1_000_000_000)
-                
-                await MainActor.run {
-                    guard !originCity.isEmpty && !destinationCity.isEmpty else {
-                        state = .error("Please select both origin and destination cities")
-                        return
-                    }
-                    
-                    if let route = routeFinder.findCheapestRoute(from: originCity, to: destinationCity) {
-                        state = .loaded(route)
-                    } else {
-                        state = .error("No route found between \(originCity) and \(destinationCity)")
-                    }
-                }
+            state = .loading(
+                title: "Searching for route...",
+                subtitle: "Travel is the only thing you buy that makes you richer"
+            )
+            guard !originCity.isEmpty && !destinationCity.isEmpty else {
+                state = .error("Please select both origin and destination cities")
+                return
+            }
+            
+            if let route = routeFinder.findCheapestRoute(from: originCity, to: destinationCity) {
+                state = .loaded(route)
+            } else {
+                state = .error("No route found between \(originCity) and \(destinationCity)")
             }
         }
         

@@ -17,8 +17,8 @@ extension Home.ViewState: Equatable {
             return true
         case (.loaded(let lhsViewModel), .loaded(let rhsViewModel)):
             return lhsViewModel.totalPrice == rhsViewModel.totalPrice &&
-                   lhsViewModel.path == rhsViewModel.path &&
-                   lhsViewModel.coordinates.count == rhsViewModel.coordinates.count
+            lhsViewModel.formattedPath == rhsViewModel.formattedPath &&
+            lhsViewModel.routeCoordinates.count == rhsViewModel.routeCoordinates.count
         case (.error(let lhsError), .error(let rhsError)):
             return lhsError == rhsError
         default:

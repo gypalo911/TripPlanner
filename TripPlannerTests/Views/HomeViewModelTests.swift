@@ -162,10 +162,10 @@ final class HomeViewModelTests: XCTestCase {
         sut.findRoute()
         
         // Then
-        if case .loaded(let viewModel) = sut.state {
-            XCTAssertEqual(viewModel.totalPrice, "100.00 €")
-            XCTAssertEqual(viewModel.path, "London → Paris")
-            XCTAssertEqual(viewModel.coordinates.count, 2)
+        if case .loaded(let route) = sut.state {
+            XCTAssertEqual(route.formattedPrice, "100.00 €")
+            XCTAssertEqual(route.formattedPath, "London → Paris")
+            XCTAssertEqual(route.routeCoordinates.count, 2)
         } else {
             XCTFail("Expected loaded state")
         }
