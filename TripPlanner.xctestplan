@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "479A9235-A0C1-4AC8-965C-24EA6AB2F444",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TripPlanner.xcodeproj",
+      "identifier" : "D01829012D8AC01C00AEABB4",
+      "name" : "TripPlanner"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:TripPlanner.xcodeproj",
+        "identifier" : "D01829112D8AC01F00AEABB4",
+        "name" : "TripPlannerTests"
+      }
+    }
+  ],
+  "version" : 1
+}
